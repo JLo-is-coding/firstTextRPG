@@ -2,7 +2,6 @@ from commands.parse_input import parse_input
 from commands.resolve_command import resolve_command
 from game_data.pathways import pathways
 from gamestate import Gamestate
-
 from err_handling import transform_err
 
 def main():
