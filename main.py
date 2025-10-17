@@ -12,21 +12,21 @@ def main():
     print("Welcome to JLo's Text RPG!")
 
     while 0<1:
-        resolved = False
-        while resolved == False:
-            user_input = input("\nwhat would you like to do?\n> ")
-            
-            try:
-                command, target = parse_input(user_input)
-                if target == None:
-                    resolve_command(command)()
-                elif target != None:
-                    resolve_command(command)(target, game)
+        user_input = input("\nwhat would you like to do?\n> ")
+        
+        try:
+            command, target = parse_input(user_input)
+            proc_additional_events(command, target, game, priority=1)
 
-                proc_additional_events(command, target, game.location)
-                
-            except Exception as e:
-                print (transform_err(e))
+            if target == None:
+                resolve_command(command)()
+            elif target != None:
+                resolve_command(command)(target, game)
+
+            proc_additional_events(command, target, game, priority=2)
+
+        except Exception as e:
+            print (transform_err(e))
 
 main()
 

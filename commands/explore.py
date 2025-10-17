@@ -25,4 +25,5 @@ def explore(target, gamestate):
         raise Exception("You can't go there...")
     if not check_door_state(intended_path):
         raise Exception("That door is locked.")
+    print ("moving the player") #Testing
     gamestate.move_player(target)
